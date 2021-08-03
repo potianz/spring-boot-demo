@@ -1,7 +1,11 @@
 package com.zyh.controller;
 
 import com.zyh.config.FoodCofig;
+import com.zyh.config.MeatConfig;
+import com.zyh.config.VegetablesConfig;
 import com.zyh.domin.Food;
+import com.zyh.domin.Meat;
+import com.zyh.domin.Vegetables;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class FoodController {
     @Autowired
     private FoodCofig foodCofig;
+    @Autowired
+    private VegetablesConfig vegetablesConfig;
 
+    @Autowired
+    private MeatConfig meatConfig;
     @RequestMapping("/food")
     public Food food(){
         Food food = new Food();
@@ -18,7 +26,22 @@ public class FoodController {
         food.setRice(foodCofig.getRice());
         return food;
     }
-
-
+    @RequestMapping("/vegetables")
+    public Vegetables vegetables(){
+        Vegetables vegetables = new Vegetables();
+        vegetables.setEggplant(vegetablesConfig.getEggplant());
+        vegetables.setGreenpeper(vegetablesConfig.getGreenpeper());
+        vegetables.setPotato(vegetablesConfig.getPotato());
+        return vegetables;
+    }
+    @RequestMapping("/meat")
+    public Meat meat(){
+        Meat meat = new Meat();
+        meat.setBeef(meatConfig.getBeef());
+        meat.setChicken(meatConfig.getChicken());
+        meat.setFish(meatConfig.getFish());
+        meat.setPork(meatConfig.getPork());
+        return meat;
+    }
 
 }
