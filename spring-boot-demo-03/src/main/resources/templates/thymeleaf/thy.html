@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=“http://www.thymeleaf.org”>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>thymeleaf</title>
+</head>
+<body>
+<!--<p th:text = "${name}" >name</p>-->
+<!--<p th:utext = "${name}">name</p>-->
+<!--<p th:text="${resturant.boss}" >resturant boss</p>-->
+<!--<p th:text="${resturant.chef}" >resturant chef</p>-->
+<div th:object ="${resturant}">
+    <p>boss: <span th:text="*{boss}">boss</span></p>
+    <p>chef:<span th:text="*{chef}">chef</span></p>
+</div>
+<a href="welcome" th:href="@{/welcome}">welcome</a>
+<p th:text="#{something}">message</p>
+
+<div th:insert="footer :: copy"></div>
+<div th:replace="footer :: copy"></div>
+<div th:include="footer :: copy"></div>
+</body>

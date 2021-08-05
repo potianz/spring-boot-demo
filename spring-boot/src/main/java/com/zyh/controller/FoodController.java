@@ -7,6 +7,8 @@ import com.zyh.domin.Food;
 import com.zyh.domin.Meat;
 import com.zyh.domin.Vegetables;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +26,7 @@ public class FoodController {
         Food food = new Food();
         food.setMeat(foodCofig.getMeat());
         food.setRice(foodCofig.getRice());
+        food.setFlavor(foodCofig.getFlavor());
         return food;
     }
     @RequestMapping("/vegetables")
@@ -43,5 +46,12 @@ public class FoodController {
         meat.setPork(meatConfig.getPork());
         return meat;
     }
-
+    @Value("${info.username}")
+    private String name;
+    @Value("${info.password}")
+    private String password;
+    @RequestMapping("/jasypt")
+    public String jasypt(){
+        return name+"\t"+password;
+    }
 }
