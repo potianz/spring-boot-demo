@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=“http://www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <title>删除信息</title>
+</head>
+<body>
+<form method="post" th:action="@{/guest/delete}">
+    <div>
+        姓名：<span th:text="${name}">name</span>
+        职务：<span th:text="${role}">role</span>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2 control-label" >
+            <input type="submit" value="确认删除" class="btn btn-info">
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -8,5 +8,8 @@ import java.util.List;
 
 public interface GuestService {
     List<Guest> selectList();
+    void add(Guest guest);
+    void update(Guest guest);
+    void delete(Guest guest);
 }
 
