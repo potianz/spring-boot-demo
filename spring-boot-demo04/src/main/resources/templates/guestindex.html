@@ -31,8 +31,8 @@
                role
            </td>
            <td class="col-sm-2">
-               <a  th:href="@{/guest/toUpdate(id=${guest.id})}" class="btn btn-info">修改</a>
-               <a  th:href="@{/guest/toDelete(id=${guest.id})}" class="btn btn-info">删除</a>
+               <a  th:href="@{/guest/toUpdate/}+${guest.id}" class="btn btn-info">修改</a>
+               <a  th:href="@{/guest/toDelete/}+${guest.id}" class="btn btn-info">删除</a>
            </td>
        </tr>
        </tr>

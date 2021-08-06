@@ -1,0 +1,11 @@
+server:
+  port: 8090
+spring:
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .ftl
+    hiddenmethod:
+      filter:
+        enabled: true
+#spring.mvc.hiddenmethod.filter.enabled=true

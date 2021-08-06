@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=“http://www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <title>删除信息</title>
+<!--    <script type="text/javascript" th:src="@{webjars/jquery/3.6.0/jquery.js}"></script>-->
+</head>
+<body>
+<form method="post" th:action="@{/guest/}+${id}">
+    <input type="hidden" name="_method" value="delete"/>
+    <div>
+        姓名：<span th:text="${name}">name</span><br>
+        职务：<span th:text="${role}">role</span>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2 control-label" >
+<!--            <button type="submit" class="btn btn-sm btn-danger">确认删除</button>-->
+                        <input type="submit" value="确认删除" class="btn btn-info">
+<!--                <button th:attr="del_url=@{/guest/}+${id}" name="del_button">确认删除</button>-->
+        </div>
+    </div>
+</form>
+<!--    删除按钮借助的表单-->
+<!--<form method="post" id="del_form">-->
+<!--    <input type="hidden" name="_method" value="delete">-->
+<!--</form>-->
+<!--<script>-->
+<!--    $(function () {-->
+<!--        $("button[name='del_button']").click(function () {-->
+<!--            $("#del_form").prop("action",$(this).attr("del_url")).submit();-->
+<!--        })-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>
