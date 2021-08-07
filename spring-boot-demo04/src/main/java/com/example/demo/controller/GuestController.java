@@ -74,5 +74,4 @@ public class GuestController {
         guestService.delete(id);
         return  "redirect:/guest";
     }
-
 }
