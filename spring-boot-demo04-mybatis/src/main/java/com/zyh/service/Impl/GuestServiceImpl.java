@@ -1,6 +1,7 @@
 package com.zyh.service.Impl;
 
 import com.zyh.mapper.GuestMapper;
+import com.zyh.mapper2.GuestMapper2;
 import com.zyh.model.Guest;
 import com.zyh.service.GuestService;
 import com.zyh.tk.mapper.TkGuestMapper;
@@ -12,11 +13,11 @@ import java.util.List;
 public class GuestServiceImpl implements GuestService {
 
     @Autowired
-//    private GuestMapper guestMapper;
-    private TkGuestMapper tkGuestMapper;
+    private GuestMapper2 guestMapper;
+//    private TkGuestMapper tkGuestMapper;
     @Override
     public List<Guest> select() {
-//        return guestMapper.getGuests();
-        return tkGuestMapper.selectAll();
+        return guestMapper.getGuests();
+//        return tkGuestMapper.selectAll();
     }
 }
