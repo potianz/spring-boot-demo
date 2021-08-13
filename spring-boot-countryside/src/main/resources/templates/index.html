@@ -1,0 +1,80 @@
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>index</title>
+    <script>
+<!--        网页加载完毕-->
+        window.onload = function () {
+            var button_login = document.getElementById("button_login");
+            function enter(){
+                var xml = new XMLHttpRequest();
+
+                var name = document.getElementById("name");
+                var password = document.getElementById("password");
+                xml.open("post","/countryside/login",true);
+                if(name.value==null || name.value == ""){
+                    alert("请输入账户！");
+                    return;
+                }else if(password.value == null || password.value == ""){
+                    alert("请输入密码！");
+                    return;
+                }
+                return xml;
+            }
+
+            var name = document.getElementById("name");
+
+            // 监听是否按了回车键
+            var pass = document.getElementById("password");
+            pass.onkeydown = function (ev) {
+                var e = window.event || ev;
+                if(e.keyCode == 13){
+                    var xml = enter();
+                    xml.send("name="+name.value+"&password="+pass.value);
+                    //监听readyState变化
+                    xml.onreadystatechange = function () {
+                        if(xml.readyState == 4 && xml.status == 200){
+                            doBack(xml.responseText);
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div style="height: 100px">
+
+    </div>
+    <form action="/countryside/login" method="post" role="form" class="form-horizontal">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">账户：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="请输入账户" style="width: 300px" name="name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码：</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="password" name="password" style="width: 300px">
+            </div>
+        </div>
+        <div class="form-group col-sm-offset-2 col-sm-15">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <input type="submit" id="button_login" class="but but-default but-lg form-control" value="login"  style="width: 70px">
+
+            </div>
+        </div>
+        <div class=" col-sm-offset-2 col-sm-15">
+            <label class="col-sm-1 control-label"></label>
+            <a class="but but-default but-lg form-control " href="/countryside/toRegister" style="width: 70px">
+                注册
+            </a>
+        </div>
+
+    </form>
+</body>
+</html>
